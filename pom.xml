@@ -11,7 +11,7 @@
 	<groupId>com.productos</groupId>
 	<artifactId>productos-web</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<packaging>war</packaging>
+	<packaging>jar</packaging>
 	<name>productos-web</name>
 	<description>Front End Proudctos Web</description>
 	<properties>
