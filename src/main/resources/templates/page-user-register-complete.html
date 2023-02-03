@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="author" content="INSPIRO" />
+    <meta name="description" content="Themeforest Template Polo, html template">
+    <link rel="icon" type="image/png" href="../images/FDL.jpg">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Document title -->
+    <title>JFDL | Tu Blog</title>
+    <!-- Stylesheets & Fonts -->
+    <link th:href="@{/css/plugins.css}" rel="stylesheet">
+    <link th:href="@{/css/style.css}"   rel="stylesheet">
+</head>
+
+<body>
+    <!-- Body Inner -->
+    <div class="body-inner">
+        <!-- Section -->
+        <section class="pt-5 pb-5" style="background: url(/tuPortalJFDL/images/pattern/pattern15.png) !important;" >
+            <div class="container-fluid d-flex flex-column">
+                <div class="row align-items-center min-vh-100">
+
+                        <div class="">
+                            <div class="card-body py-5 px-sm-5" align="center">
+                                <div class="col-lg-6">
+                                        <div role="alert" class="alert alert-info alert-dismissible">
+                                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"> </button>
+                                            <strong ><i class="fa fa-check-circle"></i> Bienvenido! </strong>Usuario Creado con Exito!!!<br><br>
+                                            <div style="text-align: left;display: grid;align-content: space-evenly;">
+                                                <div class="alert alert-dark alert-dismissible fade show" role="alert" style="display: inline-table;margin-bottom: -15px;padding: 6px;"><strong>&nbsp;&nbsp;Nombre:</strong>&nbsp;<label th:text="${usuario.getNombre()} +' '+ ${usuario.getApellido()}"></label></div><br>
+                                                <div class="alert alert-dark alert-dismissible fade show" role="alert" style="display: inline-table;margin-bottom: 5px;padding: 6px;"><strong >&nbsp;&nbsp;Usuario:</strong>&nbsp;<label  th:text="${usuario.getUser_name()}"></label></div><br>
+                                            </div>
+
+                                            <div class="mt-4"><small></small> <button  type="button" class="btn btn-dark" onclick="location.href='../../login'" >Iniciar sesión</button></a>
+                                        </div>
+
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- end: Section -->
+    </div>
+    <!-- end: Body Inner -->
+    <!-- Scroll top -->
+    <a id="scrollTop"><i class="icon-chevron-up"></i><i class="icon-chevron-up"></i></a>
+    <!--Plugins-->
+    <script th:src="@{/js/jquery.js}"></script>
+    <script th:src="@{/js/plugins.js}"></script>
+    <script th:src="@{/js/functions.js}"></script>
+
+</body>
+
+</html>

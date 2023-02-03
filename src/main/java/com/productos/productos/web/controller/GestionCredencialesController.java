@@ -33,7 +33,7 @@ public class GestionCredencialesController {
     }
 
     @PostMapping("/registrar")
-    public ResponseEntity<Usuario> registrar(@ModelAttribute("usuario") Usuario usuario) throws Exception{
+    public String registrar(@ModelAttribute("usuario") Usuario usuario) throws Exception{
         Cliente cliente = new Cliente();
         cliente.setId_cliente(1);
         usuario.setEstado(true);
@@ -46,8 +46,18 @@ public class GestionCredencialesController {
         Usuario obj = service.registrar(usuario);
 
         // localhost:8080/pacientes/2
-        URI location = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(obj.getId_usuario()).toUri();
-        return ResponseEntity.created(location).build();
+        //URI location = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(obj.getId_usuario()).toUri();
+        return "redirect:/registro/registrar/"+obj.getId_usuario();
+    }
+
+    @GetMapping("/registrar/{id}")
+    public String registrar(@PathVariable Integer id,Model model) throws Exception{
+        Cliente cliente = new Cliente();
+        cliente.setId_cliente(1);
+        Usuario obj =service.listarPorId(id);
+        model.addAttribute("name", id);
+        model.addAttribute("usuario", obj);
+        return "page-user-register-complete";
     }
 
     @RequestMapping(value="/logout", method = RequestMethod.GET)
