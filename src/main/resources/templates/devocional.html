@@ -144,26 +144,14 @@
         <!-- Content -->
         <section id="page-content" class="sidebar-right">
             <div class="container">
-
-                    <!-- end: Portfolio Filter -->
-                    <!-- Portfolio -->
-                    <div id="portfolio" class="grid-layout portfolio-3-columns" data-margin="20">
-                        <!-- portfolio item                             -->
-                        <div  th:each="devocional : ${devocionales}" class="portfolio-item img-zoom ct-photography ct-media ct-branding ct-Media">
-                            <div class="portfolio-item-wrap">
-                                <div class="portfolio-image">
-                                    <a th:href="'../devocionales/devocional?id='+${devocional.id_devocional}"><img src="../images/other/Devocionales.jpg" alt=""></a>
-                                </div>
-                                <div class="portfolio-description">
-                                    <a th:href="'../devocionales/devocional?id='+${devocional.id_devocional}">
-                                        <h3><label  th:text="${devocional.nombre}" /></h3>
-                                        <span><label  th:text="${devocional.fechaDevocional}"/> (<label  th:text="${devocional.punto}"/> Puntos)</span>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
+                    <!-- post content-->
+                    <div>
+                        <div class="visme_d" data-title="Devocional" data-url="rxmmzqo6-devocional" data-w="816" data-full-h="true" data-h="1056" data-domain="my"></div>
+                        <p style="width:142px !important;border-radius:3px !important;padding:3px !important;font-size:12px !important;font-family:Arial, sans-serif !important;color:#314152 !important;white-space:nowrap !important">
+                            <a th:href="${devocional.url}" target="_blank" rel="noreferrer" style="font-weight:600 !important;text-decoration:none !important;font-size:12px !important;font-family:Arial, sans-serif !important;color:#314152 !important;white-space:nowrap !important"></a></p>
+                        <hr class="space">
                     </div>
-
+                    <!-- end: post content -->
                 </div>
 
         </section>
