@@ -40,6 +40,10 @@ public class Usuario {
     private String fecha_nacimiento;
     @Column(name = "telefono", nullable = false, length = 255)
     private String telefono;
+    @Column(name = "puntosGE", nullable = true)
+    private Integer puntosGE;
+    @Column(columnDefinition = "TEXT")
+    private String foto;
 
     public Integer getId_usuario() {
         return id_usuario;
@@ -127,5 +131,21 @@ public class Usuario {
 
     public void setTelefono(String telefono) {
         this.telefono = telefono;
+    }
+
+    public Integer getPuntosGE() {
+        return puntosGE;
+    }
+
+    public void setPuntosGE(Integer puntosGE) {
+        this.puntosGE = puntosGE;
+    }
+
+    public String getFoto() {
+        return foto;
+    }
+
+    public void setFoto(String foto) {
+        this.foto = foto;
     }
 }

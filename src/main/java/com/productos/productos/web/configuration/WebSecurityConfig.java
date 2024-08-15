@@ -22,8 +22,10 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         http
                 .authorizeRequests()
                 .antMatchers("/", "/login").permitAll()
+                .antMatchers("/", "/inicio").permitAll()
                 //.antMatchers("/portal/**").hasRole("PORTAL")
                 .antMatchers("/registro/**").permitAll()
+                .antMatchers("/puntosGE/**").permitAll()
                 .antMatchers("/audio/**").permitAll()
                 .antMatchers("/css/**").permitAll()
                 .antMatchers("/homepages/**").permitAll()
@@ -41,9 +43,9 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 //.failureUrl("/login.html?error=true")
                 .and()
                 .logout()
-                .logoutSuccessUrl("/login")
+                .logoutSuccessUrl("/login").permitAll().and().csrf().disable().cors()
                 //.logoutUrl("/login")
-                .permitAll()
+
                 .and()
                 .logout()
                 .permitAll();
