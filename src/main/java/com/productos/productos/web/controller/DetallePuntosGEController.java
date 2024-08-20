@@ -1,7 +1,10 @@
 package com.productos.productos.web.controller;
 
+import com.productos.productos.web.dto.DetallePuntosGEDTO;
 import com.productos.productos.web.model.Cliente;
+import com.productos.productos.web.model.DetallePuntosGE;
 import com.productos.productos.web.model.Usuario;
+import com.productos.productos.web.service.IDetallePuntosGEService;
 import com.productos.productos.web.service.IUsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
@@ -14,6 +17,8 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.time.LocalDate;
+import java.util.List;
 
 @Controller
 @RequestMapping("/puntosGE")
@@ -21,31 +26,55 @@ public class DetallePuntosGEController {
 
     @Autowired
     private IUsuarioService service;
+    @Autowired
+    private IDetallePuntosGEService detallePuntosGEService;
 
-    @GetMapping("/registroUsuario")
-    public String registroUsuario(@RequestParam(name="name", required=false, defaultValue="World") String name, Model model) {
+    @GetMapping("/administracionPuntosGE")
+    public String registroUsuario(@RequestParam(name="name", required=false, defaultValue="World") String name, Model model) throws Exception{
         model.addAttribute("name", name);
-        model.addAttribute("usuario", new Usuario());
-        return "page-user-register";
+        List<Usuario> usuarios= service.listar();
+        model.addAttribute("detallePuntosGE", new DetallePuntosGE());
+        model.addAttribute("usuarios", usuarios);
+
+        List<DetallePuntosGE> detallesPuntosGE=detallePuntosGEService.findByUser_name(usuarios.get(0).getUser_name());
+        model.addAttribute("puntosGE", detallesPuntosGE);
+
+        return "administracion-punstosGE";
     }
 
     @PostMapping("/registrar")
-    public String registrar(@ModelAttribute("usuario") Usuario usuario) throws Exception{
-        Cliente cliente = new Cliente();
-        cliente.setId_cliente(1);
-        usuario.setEstado(true);
-        usuario.setCliente(cliente);
+    public String registrar(@ModelAttribute("detallePuntosGE") DetallePuntosGEDTO detallePuntosGE, Model model) throws Exception{
 
-        BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
-        String encodedPassword = passwordEncoder.encode(usuario.getClave());
-        usuario.setClave(encodedPassword);
+        LocalDate localDateTime = LocalDate.now();
+        Usuario usuario=service.findByUser_name(detallePuntosGE.getUsuario());
 
-        Usuario obj = service.registrar(usuario);
+        DetallePuntosGE detallePuntosGE1 = new DetallePuntosGE();
+        detallePuntosGE1.setPuntosGE(detallePuntosGE.getPuntosGE());
+        detallePuntosGE1.setUsuario(usuario);
+        detallePuntosGE1.setDecripcion(detallePuntosGE.getDecripcion());
+        detallePuntosGE1.setFecha(localDateTime);
+        detallePuntosGEService.registrar(detallePuntosGE1);
+        List<Usuario> usuarios= service.listar();
+        model.addAttribute("detallePuntosGE", new DetallePuntosGE());
+        model.addAttribute("usuarios", usuarios);
 
+        List<DetallePuntosGE> detallesPuntosGE=detallePuntosGEService.findByUser_name(detallePuntosGE.getUsuario());
+        model.addAttribute("puntosGE", detallesPuntosGE);
         // localhost:8080/pacientes/2
         //URI location = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(obj.getId_usuario()).toUri();
-        return "redirect:/registro/registrar/"+obj.getId_usuario();
+        return "administracion-punstosGE";
     }
+
+    @PostMapping("/cargarDetallePuntosGE")
+    public @ResponseBody  List<DetallePuntosGE> cargarDetallePuntosGE(@RequestParam(name = "usuario") String usuario, Model model) throws Exception {
+
+        List<DetallePuntosGE> detallesPuntosGE=detallePuntosGEService.findByUser_name(usuario);
+        model.addAttribute("puntosGE", detallesPuntosGE);
+        // localhost:8080/pacientes/2
+        //URI location = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(obj.getId_usuario()).toUri();
+        return detallesPuntosGE;
+    }
+
 
     @GetMapping("/detalle/{id}")
     public String registrar(@PathVariable Integer id,Model model) throws Exception{

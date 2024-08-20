@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="author" content="INSPIRO" />
+    <meta name="description" content="Themeforest Template Polo, html template">
+    <link rel="icon" type="image/png" href="../images/FDL.jpg">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Document title -->
+    <title>JFDL | Tu Blog</title>
+    <!-- Stylesheets & Fonts -->
+    <link th:href="@{/css/plugins.css}" rel="stylesheet">
+    <link th:href="@{/css/style.css}"   rel="stylesheet">
+    <script src="//my.visme.co/visme-embed.js"></script>
+    <!-- BLOG FONT & STYLE -->
+    <link href="https://fonts.googleapis.com/css?family=Damion" rel="stylesheet" type="text/css">
+    <link th:href="@{/homepages/blog/css/style-blog.css}"   rel="stylesheet">
+<style type="text/css">
+
+    .containerCarousel {
+        position: relative;
+        width: 320px;
+        margin: 100px auto 0 auto;
+        perspective: 1000px;
+    }
+
+    .carouselHome {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        transform-style: preserve-3d;
+        animation: rotate360 60s infinite forwards linear;
+    }
+    .carousel__face {
+        position: absolute;
+        width: 300px;
+        height: 187px;
+        top: 20px;
+        left: 10px;
+        right: 10px;
+        background-size: cover;
+        box-shadow:inset 0 0 0 2000px rgba(0,0,0,0.5);
+        display: flex;
+    }
+
+    .spanCarousel {
+        margin: auto;
+        font-size: 2rem;
+    }
+
+
+    .carousel__face:nth-child(1) {
+        background-image: url("../homepages/blog/images/slider/humildad.jpg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
+        transform: rotateY(  0deg) translateZ(430px); }
+    .carousel__face:nth-child(2) {
+        background-image: url("../homepages/blog/images/slider/esperanza.jpg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
+        transform: rotateY( 40deg) translateZ(430px); }
+    .carousel__face:nth-child(3) {
+        background-image: url("../homepages/blog/images/slider/renacidos.png?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
+        transform: rotateY( 80deg) translateZ(430px); }
+    .carousel__face:nth-child(4) {
+        background-image: url("../homepages/blog/images/slider/ALABANZA1.jpg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
+        transform: rotateY(120deg) translateZ(430px); }
+    .carousel__face:nth-child(5) {
+        background-image: url("../homepages/blog/images/slider/ALABANZA2.jpg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
+        transform: rotateY(160deg) translateZ(430px); }
+    .carousel__face:nth-child(6) {
+        background-image: url("../homepages/blog/images/slider/CONGRESTO_TODOS2.jpg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
+        transform: rotateY(200deg) translateZ(430px); }
+    .carousel__face:nth-child(7) {
+        background-image: url("../homepages/blog/images/slider/JOVENES_MAYORES.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
+        transform: rotateY(240deg) translateZ(430px); }
+    .carousel__face:nth-child(8) {
+        background-image: url("../homepages/blog/images/slider/FOGATA_FDL.jpg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
+        transform: rotateY(280deg) translateZ(430px); }
+    .carousel__face:nth-child(9) {
+        background-image: url("https://images.pexels.com/photos/1175135/pexels-photo-1175135.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
+        transform: rotateY(320deg) translateZ(430px); }
+
+
+
+    @keyframes rotate360 {
+        from {
+            transform: rotateY(0deg);
+        }
+        to {
+            transform: rotateY(-360deg);
+        }
+    }
+
+</style>
+</head>
+
+<body>
+    <!-- Body Inner -->
+    <div class="body-inner" >
+
+        <!-- Header -->
+        <header id="header" class="header-mini dark">
+            <div class="header-inner">
+                <div class="container">
+                    <!--Logo-->
+                    <div id="logo"> <a href="#"><span class="logo-default"></span><span class="logo-dark">JFDL</span></a> </div>
+                    <!--End: Logo-->
+                    <!--end: Header Extras-->
+                    <!--Navigation Resposnive Trigger-->
+                    <div id="mainMenu-trigger"> <a class="lines-button x"><span class="lines"></span></a> </div>
+                    <!--end: Navigation Resposnive Trigger-->
+                    <!--Navigation-->
+                    <div id="mainMenu">
+                        <div class="container">
+                            <nav>
+                                <ul>
+                                    <li><a href="../portal/principal">Inicio</a></li>
+                                    <li class="dropdown"><a href="#">Mi Espacio</a>
+                                        <ul class="dropdown-menu">
+                                            <li class="mega-menu-content">
+                                                <div class="row">
+                                                    <div class="col-lg-2-5">
+                                                        <ul>
+                                                            <li><a href="../devocionales/estudio">Devocionales</a></li>
+                                                            <li><a href="blog-masonry-2.html">Reflexiones</a></li>
+                                                            <li><a href="blog-masonry-3.html">Progreso</a></li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li class="dropdown"><a href="#">Eventos</a></li>
+                                    <li class="dropdown" style="margin-top: 1% !important;"><a href="../registro/logout"><i class="icon-log-out"></i></a></li>
+
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                    <!--end: Navigation-->
+                </div>
+            </div>
+        </header>
+        <!-- end: Header -->
+
+        <!-- Content -->
+        <section class="pt-5 pb-5" style="background: url(/tuPortalJFDL/images/pattern/pattern15.png) !important;" >
+            <div class="container-fluid d-flex flex-column">
+                <div class="row align-items-center min-vh-100">
+                    <div class="col-md-10 col-lg-8 col-xl-7 mx-auto">
+                        <div class="card shadow-lg">
+                            <div class="card-body py-5 px-sm-5">
+                                <h3>Registrar Nuevos Puntos GE</h3>
+                                <p>Ingrese los nuevos puntos a Ingresar a la persona, escriba en la descripcion el motivo de la asignacion de puntos.</p>
+                                <form id="form1" action="#" class="form-validate mt-5" th:action="@{/puntosGE/registrar}" th:object="${detallePuntosGE}" method="post">
+                                    <div class="h5 mb-4">Detalles de la cuenta</div>
+                                    <div class="row">
+                                        <label >Nombre de usuario</label>
+                                        <select id="usuario" name="usuario" th:field="*{usuario}" class="form-select" required>
+                                            <option th:each="usuario : ${usuarios}" th:value="${usuario.getUser_name()}" th:text="${usuario.getNombre()}+' '+${usuario.getApellido()}"></option>
+                                        </select>
+                                    </div>
+                                    <div class="row">
+                                        <div class="form-group col-md-6">
+                                            <label for="puntosGE">Puntos GE:</label>
+                                            <input type="number" class="form-control" name="puntosGE" placeholder="Ingrese los nuevos puntos a sumar" required>
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label for="decripcion">Descripcion Puntos GE:</label>
+                                            <input type="textarea" class="form-control" name="decripcion" placeholder="Descripcion del porque ganos los puntos" required>
+                                        </div>
+                                    </div>
+                                    <button type="submit" class="btn m-t-30 mt-3">Enviar</button>
+                                    </br></br>
+                                    <div th:if="${ not#lists.isEmpty(puntosGE)}">
+                                        <table class="table table-striped table-dark" id="detallePuntos">
+                                            <thead>
+                                            <tr>
+                                                <th>Nombre</th>
+                                                <th>Puntos</th>
+                                                <th>Descripcion</th>
+                                                <th>Fecha</th>
+                                            </tr>
+                                            <tbody id="DataResult">
+                                            <tr th:each="puntos : ${puntosGE}">
+                                                <td th:text="${puntos.usuario.nombre}+' '+${puntos.usuario.apellido}"></td>
+                                                <td th:text="${puntos.puntosGE}"></td>
+                                                <td th:text="${puntos.decripcion}"></td>
+                                                <td th:text="${puntos.fecha}"></td>
+                                            </tr>
+                                            </tbody>
+                                            <table>
+
+
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- end: Content -->
+        <!-- Footer -->
+        <footer id="footer">
+            <div class="copyright-content">
+                <div class="container">
+                    <div class="copyright-text text-center">&copy; 2022 JFDL - Ministerio de Jovenes Fuente de Luz Metapan, Santa Ana, El Salvador Centro America.<a href="https://iglesiafuentedeluz.org/" target="_blank" rel="noopener"> Iglesia Fuente de Luz</a> </div>
+                </div>
+            </div>
+        </footer>
+        <!-- end: Footer -->
+
+    </div>
+    <!-- end: Body Inner -->
+
+    <!-- Scroll top -->
+    <a id="scrollTop"><i class="icon-chevron-up"></i><i class="icon-chevron-up"></i></a>
+    <!--Plugins-->
+    <script th:src="@{/js/jquery.js}"></script>
+    <script th:src="@{/js/plugins.js}"></script>
+    <script th:src="@{/js/functions.js}"></script>
+    <script type="text/javascript">
+        $('#usuario').on("change", function() {
+            var usuario = $("#usuario").val();
+            $.ajax({
+                type: "POST",
+                dataType: "json",
+                url: "../puntosGE/cargarDetallePuntosGE",
+                data: "usuario="+usuario,
+                success: function(response){
+                    console.log(response);
+                    var html = '';
+                    var i;
+                    for (i = 0; i < response.length; i++) {
+                        html += '<tr>' +
+                            '<td>' + response[i].usuario.nombre +' '+response[i].usuario.apellido+ '</td>' +
+                            '<td>' + response[i].puntosGE + '</td>' +
+                            '<td>' + response[i].decripcion + '</td>' +
+                            '<td>' + response[i].fecha + '</td>' +
+                            '</tr>';
+                    }
+                    $('#DataResult').html(html);
+
+                },
+                error: function(error){
+                    console.log("error="+error);
+                }
+            });
+        });
+    </script>
+
+</body>
+
+</html>
