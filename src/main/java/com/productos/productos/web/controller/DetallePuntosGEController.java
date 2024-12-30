@@ -2,8 +2,10 @@ package com.productos.productos.web.controller;
 
 import com.productos.productos.web.dto.DetallePuntosGEDTO;
 import com.productos.productos.web.model.Cliente;
+import com.productos.productos.web.model.DetalleCampaQR;
 import com.productos.productos.web.model.DetallePuntosGE;
 import com.productos.productos.web.model.Usuario;
+import com.productos.productos.web.service.IDetalleCampaQRService;
 import com.productos.productos.web.service.IDetallePuntosGEService;
 import com.productos.productos.web.service.IUsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,6 +30,8 @@ public class DetallePuntosGEController {
     private IUsuarioService service;
     @Autowired
     private IDetallePuntosGEService detallePuntosGEService;
+    @Autowired
+    private IDetalleCampaQRService detalleCampaQRService;
 
     @GetMapping("/administracionPuntosGE")
     public String registroUsuario(@RequestParam(name="name", required=false, defaultValue="World") String name, Model model) throws Exception{
@@ -81,9 +85,19 @@ public class DetallePuntosGEController {
         Cliente cliente = new Cliente();
         cliente.setId_cliente(1);
         Usuario obj =service.listarPorId(id);
+        List<DetallePuntosGE> detallePuntosGE=detallePuntosGEService.findByUser_name(obj.getUser_name());
         model.addAttribute("name", id);
         model.addAttribute("usuario", obj);
         return "detallePuntosGE";
+    }
+
+    @GetMapping("/detalleCampaQR/{id}")
+    public String detalleCampaQR(@PathVariable Integer id,Model model) throws Exception{
+        Cliente cliente = new Cliente();
+        cliente.setId_cliente(1);
+        DetalleCampaQR detalleCampaQR=detalleCampaQRService.listarPorId(id);
+        model.addAttribute("detalleCampaQR", detalleCampaQR);
+        return "detalleCampaQR";
     }
 
     @RequestMapping(value="/logout", method = RequestMethod.GET)
