@@ -97,6 +97,8 @@ public class DetallePuntosGEController {
         cliente.setId_cliente(1);
         DetalleCampaQR detalleCampaQR=detalleCampaQRService.listarPorId(id);
         model.addAttribute("detalleCampaQR", detalleCampaQR);
+        if(id==8)
+            return "detalleCampaQRVideo";
         return "detalleCampaQR";
     }
 
