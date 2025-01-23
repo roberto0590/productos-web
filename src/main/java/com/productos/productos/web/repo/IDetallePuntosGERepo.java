@@ -11,4 +11,7 @@ import java.util.List;
 public interface IDetallePuntosGERepo extends IGenericRepo<DetallePuntosGE, Integer>{
     @Query("SELECT u FROM DetallePuntosGE u WHERE u.usuario.user_name = ?1")
     public List<DetallePuntosGE> findByUser_name(String user_name);
+
+    @Query("SELECT sum(u.puntosGE) as puntosGE FROM DetallePuntosGE u WHERE u.usuario.user_name = ?1")
+    public int findByUser_nameBySuma(String user_name);
 }

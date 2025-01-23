@@ -86,8 +86,10 @@ public class DetallePuntosGEController {
         cliente.setId_cliente(1);
         Usuario obj =service.listarPorId(id);
         List<DetallePuntosGE> detallePuntosGE=detallePuntosGEService.findByUser_name(obj.getUser_name());
+        int totalPuntosGE=detallePuntosGEService.findByUser_nameBySuma(obj.getUser_name());
         model.addAttribute("name", id);
         model.addAttribute("usuario", obj);
+        model.addAttribute("totalPuntosGE",totalPuntosGE);
         return "detallePuntosGE";
     }
 

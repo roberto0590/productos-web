@@ -34,7 +34,7 @@
                                                 <div class="alert alert-dark alert-dismissible fade show" role="alert" style="display: inline-table;margin-bottom: 5px;padding: 6px;"><strong >&nbsp;&nbsp;Usuario:</strong>&nbsp;<label  th:text="${usuario.getUser_name()}"></label></div><br>
                                                 <div class="icon-box effect center clean">
                                                     <div class="icon" > <a href="#"><i style="font-size: 65px!important" class="fas fa-tachometer-alt"></i></a> </div>
-                                                    <div class="counter"><strong>&nbsp;&nbsp;<span style="font-size: 70px!important" data-speed="100" data-refresh-interval="50"   th:data-to="${usuario.getPuntosGE()}" data-from="0" data-seperator="true"><strong></strong></span></strong></div>
+                                                    <div class="counter"><strong>&nbsp;&nbsp;<span style="font-size: 70px!important" data-speed="100" data-refresh-interval="50"   th:data-to="${totalPuntosGE}" data-from="0" data-seperator="true"><strong></strong></span></strong></div>
                                                     <div class="mt-4"><small></small> <button  type="button" class="btn btn-dark" onclick="location.reload()" >Refrescar</button></a>
                                                 </div>
                                             </div>

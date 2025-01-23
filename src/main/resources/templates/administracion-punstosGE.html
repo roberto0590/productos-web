@@ -161,12 +161,27 @@
                                     </div>
                                     <div class="row">
                                         <div class="form-group col-md-6">
+                                            <label >Categorias Base:</label>
+                                            <select name="categorias" id="categorias" class="form-select">
+                                                <option value="---">---</option>
+                                                <option value="Asistencia GE">Asistencia GE</option>
+                                                <option value="Devocional Diario">Devocional Diario</option>
+                                                <option value="Visitacion">Visitacion</option>
+                                                <option value="Visitas">Visitas</option>
+                                                <option value="Memorizacion">Memorizacion</option>
+                                                <option value="Pregunta Random">Pregunta Random</option>
+                                                <option value="Instrucción Biblica">Instrucción Biblica</option>
+                                                <option value="Culto Devocional o Evangelistico">Culto Devocional o Evangelistico</option>
+                                                <option value="Discipulado">Discipulado</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group col-md-6">
                                             <label for="puntosGE">Puntos GE:</label>
-                                            <input type="number" class="form-control" name="puntosGE" placeholder="Ingrese los nuevos puntos a sumar" required>
+                                            <input type="number" class="form-control" id="puntosGE" name="puntosGE" placeholder="Ingrese los nuevos puntos a sumar" required>
                                         </div>
                                         <div class="form-group col-md-6">
                                             <label for="decripcion">Descripcion Puntos GE:</label>
-                                            <input type="textarea" class="form-control" name="decripcion" placeholder="Descripcion del porque ganos los puntos" required>
+                                            <input type="textarea" class="form-control" id="decripcion" name="decripcion" placeholder="Descripcion del porque ganos los puntos" required>
                                         </div>
                                     </div>
                                     <button type="submit" class="btn m-t-30 mt-3">Enviar</button>
@@ -247,6 +262,24 @@
                 }
             });
         });
+
+        $('#categorias').on("change", function() {
+            var categoria = $("#categorias").val();
+            $('#decripcion').val(categoria);
+            switch (categoria){
+                case "Asistencia GE": $('#puntosGE').val(5);break;
+                case "Devocional Diario": $('#puntosGE').val(15);break;
+                case "Visitacion": $('#puntosGE').val(10);break;
+                case "Visitas": $('#puntosGE').val(20);break;
+                case "Memorizacion": $('#puntosGE').val(20);break;
+                case "Pregunta Random": $('#puntosGE').val(5);break;
+                case "Instrucción Biblica": $('#puntosGE').val(10);break;
+                case "Culto Devocional o Evangelistico": $('#puntosGE').val(5);break;
+                case "Discipulado": $('#puntosGE').val(10);break;
+                default: $('#puntosGE').val(0);break;
+            }
+        });
+
     </script>
 
 </body>

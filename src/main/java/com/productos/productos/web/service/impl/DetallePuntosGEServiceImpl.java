@@ -28,5 +28,13 @@ public class DetallePuntosGEServiceImpl extends CRUDImpl<DetallePuntosGE, Intege
 		List<DetallePuntosGE> detallePuntosGE = repo.findByUser_name(user_name);
 		return detallePuntosGE;
 	}
+	public int findByUser_nameBySuma(String user_name) throws Exception {
+		try {
+			int totalPuntosGE = repo.findByUser_nameBySuma(user_name);
+			return totalPuntosGE;
+		}catch (Exception e){
+			return 0;
+		}
+	}
 
 }
