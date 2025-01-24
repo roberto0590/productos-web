@@ -66,7 +66,7 @@ public class DetallePuntosGEController {
         model.addAttribute("puntosGE", detallesPuntosGE);
         // localhost:8080/pacientes/2
         //URI location = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(obj.getId_usuario()).toUri();
-        return "administracion-punstosGE";
+        return "redirect:/puntosGE/administracionPuntosGE";
     }
 
     @PostMapping("/cargarDetallePuntosGE")
