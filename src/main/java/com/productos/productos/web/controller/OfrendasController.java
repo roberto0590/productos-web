@@ -34,6 +34,8 @@ public class OfrendasController {
         List<OfrendasGE> ofrendasGE= service.listar();
         BigDecimal totalIngreso=service.totalIngreso();
         BigDecimal totalEgreso=service.totalEgreso();
+        totalIngreso=totalIngreso==null?new BigDecimal("0"):totalIngreso;
+        totalEgreso=totalEgreso==null?new BigDecimal("0"):totalEgreso;
         BigDecimal ofrendaTotal=totalIngreso.subtract(totalEgreso);
         model.addAttribute("ofrendaGE", new OfrendasGE());
         model.addAttribute("onfrendasGElist", ofrendasGE);
